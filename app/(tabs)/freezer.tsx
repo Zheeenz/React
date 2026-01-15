@@ -4,7 +4,7 @@ import { View, Text } from 'react-native'
 const FreezeScreeen = () => {
     return (
         <View>
-            <Text> YourComponentName </Text>
+            <Text> Este es el freezer o cooler como sea </Text>
         </View>
     )
 }

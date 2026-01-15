@@ -1,35 +1,121 @@
 import { Tabs } from 'expo-router';
 import React from 'react';
+import {Dimensions, Text, View} from "react-native";
+import {Ionicons} from "@expo/vector-icons";
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-import { HapticTab } from '@/components/haptic-tab';
-import { IconSymbol } from '@/components/ui/icon-symbol';
-import { Colors } from '@/constants/theme';
-import { useColorScheme } from '@/hooks/use-color-scheme';
+
+const { height, width } = Dimensions.get("window");
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
 
-  return (
-    <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-        tabBarButton: HapticTab,
+  // @ts-ignore
+    return (
+      <Tabs screenOptions={{
+          headerShown: false,
+          tabBarShowLabel: false,
+          tabBarStyle: {
+              position: 'absolute',
+              bottom: 27,
+              left: 16,
+              right: 16,
+              height: 72,
+              elevation: 0,
+              backgroundColor: 'white',
+              borderRadius: 16,
+              borderTopWidth: 0,
+          }
       }}>
-      <Tabs.Screen
-        name="index"
-        options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
-        }}
-      />
-      <Tabs.Screen
-        name="explore"
-        options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
-        }}
-      />
-    </Tabs>
+
+          <Tabs.Screen
+              name='index'
+              options={{
+                  tabBarIcon: ({ focused }) => (
+                      <View style={{
+                          alignItems: 'center',
+                          paddingTop: 10,
+                          width: width/5
+
+                      }}>
+                          <MaterialCommunityIcons
+                              name="home"
+                              color={focused ? '#343434' : 'grey'}
+                              size={24}
+                          />
+
+                          <Text>
+                              Inicio
+                          </Text>
+                      </View>
+                  )
+              }}
+          />
+          <Tabs.Screen
+              name='pantry'
+              options={{
+                  tabBarIcon: ({ focused }) => (
+                      <View style={{
+                          alignItems: 'center',
+                          paddingTop: 10,
+                          width: width/5
+
+                      }}>
+                          <MaterialCommunityIcons
+                              name="food-variant"
+                              color={focused ? '#FFBE0B' : 'grey'}
+                              size={24}
+                          />
+                          <Text>
+                              Mercaderia
+                          </Text>
+                      </View>
+                  )
+              }}
+          />
+          <Tabs.Screen
+              name='fridge'
+              options={{
+                  tabBarIcon: ({ focused }) => (
+                      <View style={{
+                          alignItems: 'center',
+                          paddingTop: 10,
+                          width: width/5
+
+                      }}>
+                          <MaterialCommunityIcons
+                              name="fridge"
+                              color={focused ? '#2EC4B6' : 'grey'}
+                              size={24}
+                          />
+                          <Text>
+                              Refigerador
+                          </Text>
+                      </View>
+                  )
+              }}
+          />
+          <Tabs.Screen
+              name='freezer'
+              options={{
+                  tabBarIcon: ({ focused }) => (
+                      <View style={{
+                          alignItems: 'center',
+                          paddingTop: 10,
+                          width: width/5
+
+                      }}>
+                          <Ionicons
+                              name="ice-cream"
+                              color={focused ? '#3a86ff' : 'grey'}
+                              size={24}
+                          />
+                          <Text>
+                              Congelador
+                          </Text>
+                      </View>
+                  )
+              }}
+          />
+      </Tabs>
   );
 }

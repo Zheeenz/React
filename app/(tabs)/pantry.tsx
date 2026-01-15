@@ -4,7 +4,7 @@ import { View, Text } from 'react-native'
 const PantryScreeen = () => {
     return (
         <View>
-            <Text> YourComponentName </Text>
+            <Text> Esta es la alacena/Mercaderia </Text>
         </View>
     )
 }

@@ -4,7 +4,7 @@ import { View, Text } from 'react-native'
 const FridgeScreeen = () => {
     return (
         <View>
-            <Text> YourComponentName </Text>
+            <Text> Este es el refri </Text>
         </View>
     )
 }

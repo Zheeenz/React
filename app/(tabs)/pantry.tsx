@@ -5,7 +5,6 @@ const PantryScreeen = () => {
     return (
         <View>
             <Text> Esta es la alacena/Mercaderia </Text>
-            //cambio solo para el git
         </View>
     )
 }
